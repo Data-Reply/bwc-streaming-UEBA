@@ -12,11 +12,11 @@
 
 - **Why are we doing this?** **What is the purpose?** **Where do we want to get to?**
 
-  In any business context, starting from input data, particularly transactional data, our primary goal is to extract information related to user behavior. To achieve this objective, we are interested in adopting a data-driven approach, utilizing advanced unsupervised machine learning techniques such as K-means clustering (which brings with it numerous advantages, including speed and simplicity).
+  In any business context, starting from input data, particularly transactional data, our primary goal is to extract information related to user behaviour. To achieve this objective, we are interested in adopting a data-driven approach, utilizing advanced unsupervised machine learning techniques such as K-means clustering (which brings with it numerous advantages, including speed and simplicity).
 
   As we navigate through our data flow, it is crucial to enrich our dataset with additional attributes that identify the entity of each transaction. This step is fundamental to ensure that our clustering algorithms produce meaningful results and facilitate more precise user segmentation.
 
-  In this context, our main objectives revolve around enhancing our real-time reporting and analytics capabilities. We aim to gain a deeper understanding of user behavior through effective labeling strategies, while simplifying our development processes for increased efficiency and agility.
+  In this context, our main objectives revolve around enhancing our real-time reporting and analytics capabilities. We aim to gain a deeper understanding of user behaviour through effective labelling strategies, while simplifying our development processes for increased efficiency and agility.
 
 
 
@@ -45,7 +45,7 @@
     ***Description of the streaming pipeline:***
 
     1. Input data streaming related to transactions is received within the "transactions" topic.
-    2. Leveraging the power of FlinkSQL, the data is enriched by adding transaction entity information and sent in another topic called "transactions_enriched". This operation is necessary to ensure meaningful user labeling, but it could be bypassed if the input already contains such information.
+    2. Leveraging the power of FlinkSQL, the data is enriched by adding transaction entity information and sent in another topic called "transactions_enriched". This operation is necessary to ensure meaningful user labelling, but it could be bypassed if the input already contains such information.
     3. The data is then aggregated, utilizing FlinkSQL aggregation functions such as COUNT, SUM, and grouped by user_id.
     4. The output of the aggregation is sent within another topic called "transactions_aggregate".
     5. Point 5 represents the bridge between Confluent and the client. The content of the "transactions_aggregate" topic is consumed by a Kafka consumer in the Python script to access the data on the client side.
@@ -84,14 +84,14 @@
     In our case, we first need to transform the "user_id" column (initially string) into numerical data as K-means only processes data of this type. Then, once we have found the optimal number of clusters, we instantiate a K-means clustering scheme with the following parameters: 
 
     ```python
-    ##random_state to ensure the reproducibility of experiment
+    ##random_state to ensure the reproducibility of the experiment
     km = KMeans(n_clusters=k_optimal, init='k-means++', n_init='auto', random_state=42).
     ```
     
      We fit the model with the input data and produce user labels using the model.
     
     ```python
-    ##compute cluster centers and predict cluster index for each sample
+    ##compute cluster centres and predict cluster index for each sample
     y_km = km.fit_predict(X)
     ```
     
@@ -182,23 +182,23 @@ Now go back to environment `Streaming-UEBA-Marketing-Analytics` and choose the `
 
   ![pool](./img/pool.png)
 
-**NB. We suggest to  select `AWS` as Cloud provider and `eu-central-1` as region**
+**NB. We suggest selecting `AWS` as Cloud provider and `eu-central-1` as region**
 
 ### 5. Connecting to Flink 
-You can use your web browser or console to enter Flink SQL statements. In this project the workspace integrated in Confluent was used.
+You can use your web browser or console to enter Flink SQL statements. In this project, the workspace integrated in Confluent was used.
   * **Web UI** - click on the button `Open SQL workspace` on your Flink Compute Pool
     You now have to set which catalog and database you want to use:
     
     - Set the environment name **`Streaming-UEBA-Marketing-Analytics`** as catalog,
     - and the cluster name **`Streaming-UEBA-Marketing-Analytics-cluster`** as database
     
-    via the dropdown boxes, see graphic below
+    via the dropdown boxes, see the graphic below
     
     ![workspace](./img/workspace.png)
 
 
   * **Console** - copy/paste the command from your Flink Compute Pool to the command line.    
-    Of course you could also use the the Flink SQL Shell. For this, you need to have Confluent Cloud Console tool installed and be logged in with correct access rights.
+    Of course, you could also use the Flink SQL Shell. For this, you need to have the Confluent Cloud Console tool installed and be logged in with correct access rights.
       Copy the command out of the Compute Pool Window and execute it in your terminal (we prefer iterm2). 
   ```bash
   confluent flink shell --compute-pool <pool id> --environment <env-id>
@@ -210,14 +210,14 @@ You can use your web browser or console to enter Flink SQL statements. In this p
 **Let's start with exploring our Flink tables.**
 **Kafka topics and schemas are always in sync with our Flink cluster**. Any topic created in Kafka is visible directly as a table in Flink, and any table created in Flink is visible as a topic in Kafka. Effectively, Flink provides a SQL interface on top of Confluent Cloud.
 
-Following mappings exist:
+The following mappings exist:
 | Kafka          |  Flink   |
 | -------------- | :------: |
 | Environment    | Catalog  |
 | Cluster        | Database |
 | Topic + Schema |  Table   |
 
-Now, we can try typing **`SHOW TABLES`** command to verify that transactions table exists.
+Now, we can try typing **`SHOW TABLES`** command to verify that the transactions table exists.
 
 ### 7. Enriched Data with FlinkSQL
 
@@ -256,7 +256,7 @@ SELECT
 FROM transactions t
 ```
 
-**NOTE**: This operation is necessary to ensure meaningful user labeling (leveraging the power of ML algorithm), but it could be bypassed if the input already contains such information.
+**NOTE**: This operation is necessary to ensure meaningful user labelling (leveraging the power of ML algorithm), but it could be bypassed if the input already contains such information.
 
 ### 8. Aggregate Data with FlinkSQL
 
@@ -298,7 +298,7 @@ Once the topic is created, we find ourselves in the situation shown in the image
 
 ![user_labeling](./img/user_labeling.png)
 
-Press the button "***Edit settings***" and select **`compact`** as Cleanup policy. This operation is necessary to maintain within the topic `user_labeling` only the most updated information regarding users:
+Press the button "***Edit settings***" and select **`compact`** as the Cleanup policy. This operation is necessary to maintain within the topic `user_labeling` only the most updated information regarding users:
 
 ![compact](./img/compact.png)
 
@@ -314,7 +314,7 @@ git clone https://github.com/Data-Reply/streamingUEBA
 
 The client requires a configuration file **`configuration.ini`** as an argument, where all the necessary credentials and configurations to access the previously instantiated resources will be inserted.
 
-The python command to run the client is:
+The Python command to run the client is:
 
 ```bash
 python user_classifier.py ./configurations/configuration.ini
@@ -348,7 +348,7 @@ The ***URL of the schema registry*** can be found in "**Environment**", then the
 
 ![schema_registry](./img/schema_registry.png)
 
-While, for the credential of consumer and producer is necessary create an API KEY from **Cluster Overview --> API keys** (As you can notice, the same credentials are used for these two components).
+For the consumer and producer credentials, it is necessary to create an API KEY from **Cluster Overview --> API keys** (As you can notice, the same credentials are used for these two components).
 
 ### 11. Data Visualization 
 
