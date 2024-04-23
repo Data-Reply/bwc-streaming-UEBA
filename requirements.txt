@@ -1,0 +1,12 @@
+apache-beam==2.48.0
+apache-flink==1.19.0
+apache-flink-libraries==1.19.0
+avro-python3==1.10.2
+configparser==6.0.1
+confluent-kafka==2.3.0
+fastavro==1.9.4
+numpy==1.24.4
+pandas==2.2.1
+pyflink==1.0
+scikit-learn==1.4.1.post1
+seaborn==0.13.2
