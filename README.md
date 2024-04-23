@@ -37,7 +37,7 @@
 
 - **Chart and description of the solution**
 
-  ![architecture_diagram_BwC_final](.\img\architecture_diagram_BwC_final.jpg)
+  ![architecture_diagram_BwC_final](./img/architecture_diagram_BwC_final.jpg)
 
 
   - **Legend:**
@@ -61,9 +61,9 @@
   
   - Enrichment and aggregation pipeline
   
-    ![enrichment](.\img\enrichment.png)
+    ![enrichment](./img/enrichment.png)
   
-    ![aggregation](.\img\aggregation.png)
+    ![aggregation](./img/aggregation.png)
 
 ## Clustering Details
 
@@ -97,7 +97,7 @@
     
     ***Example:***
     
-    ![clustering](.\img\clustering.png)
+    ![clustering](./img/clustering.png)
 
 
 ## Resources Used
@@ -135,7 +135,7 @@ The correct **configuration** for our scope is:
 
 Add **transactions** topic with **single partition** and **default settings:**
 
-![transactions](.\img\transactions.png)
+![transactions](./img/transactions.png)
 
 ### 3. **Datagen Connectors**
 
@@ -180,7 +180,7 @@ Now go back to environment `Streaming-UEBA-Marketing-Analytics` and choose the `
 * The pool will be provisioned and ready to use in a couple of moments.
   AWS Pools take 1-2 minutes. Azure Pools can take 5-7 minutes.
 
-  ![pool](.\img\pool.png)
+  ![pool](./img/pool.png)
 
 **NB. We suggest to  select `AWS` as Cloud provider and `eu-central-1` as region**
 
@@ -194,7 +194,7 @@ You can use your web browser or console to enter Flink SQL statements. In this p
     
     via the dropdown boxes, see graphic below
     
-    ![workspace](.\img\workspace.png)
+    ![workspace](./img/workspace.png)
 
 
   * **Console** - copy/paste the command from your Flink Compute Pool to the command line.    
@@ -296,11 +296,11 @@ This can be done
 
 Once the topic is created, we find ourselves in the situation shown in the image below:
 
-![user_labeling](.\img\user_labeling.png)
+![user_labeling](./img/user_labeling.png)
 
 Press the button "***Edit settings***" and select **`compact`** as Cleanup policy. This operation is necessary to maintain within the topic `user_labeling` only the most updated information regarding users:
 
-![compact](.\img\compact.png)
+![compact](./img/compact.png)
 
 ### 10. Python Client
 
@@ -346,7 +346,7 @@ sasl.password = IfHDIM6xxx58xSQ0xPWFeT9Qxxx48NAxGIhxxxO24VxSxxPVuuSdAkCe/r8MeM/T
 
 The ***URL of the schema registry*** can be found in "**Environment**", then the right sidebar under **Stream governance API**. It is also necessary to create a specific key, which should be inserted in "**basic.auth.user.info**".
 
-![schema_registry](.\img\schema_registry.png)
+![schema_registry](./img/schema_registry.png)
 
 While, for the credential of consumer and producer is necessary create an API KEY from **Cluster Overview --> API keys** (As you can notice, the same credentials are used for these two components).
 
