@@ -307,6 +307,29 @@ Press the button "***Edit settings***" and select **`compact`** as the Cleanup p
 
 ![compact](./img/compact.png)
 
+For visualization purposes, run the following two statements in FlinkSQL:
+
+```sql
+CREATE TABLE user_labeling_final (
+  user_id STRING,
+  total_amount DOUBLE,
+  num_transactions BIGINT,
+  label INT
+)WITH (
+    'changelog.mode' = 'retract'
+);
+
+INSERT INTO user_labeling_final(
+user_id,
+total_amount,
+num_transactions,
+label)
+SELECT user_id, total_amount, num_transactions, label
+FROM user_labeling
+```
+
+
+
 ### 10. Python Client
 
 Once the FlinkSQL queries have been executed, we can start the Python client, which will apply the KMeans clustering scheme to the data from **"transactions_aggregate**", producing labeled users as output. 
@@ -370,7 +393,7 @@ The format of output data is:
 To obtain the previous output, simply return to the SQL workspace and type:
 
 ```sql
-SELECT * FROM user_labeling
+SELECT * FROM user_labeling_final
 ```
 
 Finally, it is possible to read the data from the topic in question and visualize it in any data visualization tool using a Confluent connector.
