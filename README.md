@@ -329,24 +329,24 @@ The file configuration.ini  must contain the following configurations to enable 
 
 ```ini
 [schema_registry]
-url = https://xxxx-xxxxx.eu-central-1.aws.confluent.cloud
-basic.auth.user.info = 2PC7XXXA4RH4UX2X:XxXXXV5N6VgjbfA5VeiKQ+9xxxXClYOpDycrVAZEaQd/cgAgPojxu99xx35qztzx2
+url = https://<schema-registry-URL>
+basic.auth.user.info = <token>
 
 [consumer]
-bootstrap.servers = pkc-9xxx9.eu-central-1.aws.confluent.cloud:9092
+bootstrap.servers = <hostname>:<hostname-port>
 security.protocol = SASL_SSL
 sasl.mechanisms = PLAIN
-sasl.username = SPSKC5CTUO3H56BS
-sasl.password = IfHDIM6xxx58xSQ0xPWFeT9Qxxx48NAxGIhxxxO24VxSxxPVuuSdAkCe/r8MeM/T
+sasl.username = <user>
+sasl.password = <password>
 group.id = args.group
 auto.offset.reset = earliest
 
 [producer]
-bootstrap.servers = pkc-9xxx9.eu-central-1.aws.confluent.cloud:9092
+bootstrap.servers =  <hostname>:<hostname-port>
 security.protocol = SASL_SSL
 sasl.mechanisms = PLAIN
-sasl.username = SPSKC5CTUO3H56BS
-sasl.password = IfHDIM6xxx58xSQ0xPWFeT9Qxxx48NAxGIhxxxO24VxSxxPVuuSdAkCe/r8MeM/T
+sasl.username = <user>
+sasl.password = <password>
 ```
 
 The ***URL of the schema registry*** can be found in "**Environment**", then the right sidebar under **Stream governance API**. It is also necessary to create a specific key, which should be inserted in "**basic.auth.user.info**".
@@ -390,7 +390,7 @@ Before we can run the hands-on workshop, a working infrastructure in Confluent C
 
 Check if the following topics exist in your Kafka cluster:
 
- * ***transactions*** (for real time streaming of transactions),
+ * ***transactions*** (for real-time streaming of transactions),
  * ***transactions_enriched***(for transactions enriched with amount that represent the transaction entity information),
  * ***transactions_aggregate***(for aggregate transactions),
  * ***user_labeling*** (for the labelled users),
