@@ -406,17 +406,4 @@ Check if the following Avro schemas exist in your Schema Registry:
  * user_labeling-value,
  * user_labeling-final_value.
 
-***NOTE***: Schema Registry is at the Environment level and can be used for multiple Kafka clusters.
-
-
-
-
-
-Altre info:
-
-- **Importo medio delle transazioni** per controllare se effettivamente mediamente è spendaccione o se è etichettato come tale per un'unica transazione folle da 100k
-- **Variabilità degli importi delle transazioni**: La variazione o la deviazione standard degli importi delle transazioni effettuate da ciascun utente, che potrebbe indicare la consistenza o l'irregolarità delle loro spese.
-- **Frequenza media delle transazioni** in un determinato lasso di tempo (ce lo abbiamo già dato che usiamo num transactions e estraiamo solo le transazioni di una certa finestra temporale)
-
-Per altri scopi --> metodi di pagamento, giorno della settimana preferito ecc
 
