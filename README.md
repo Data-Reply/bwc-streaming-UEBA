@@ -66,8 +66,10 @@
   - Enrichment and aggregation pipeline
   
     ![enrichment](./img/enrichment.png)
+    - Starting from the topic containing users' transactions, they are enriched through FlinkSQL by adding a double field called "amount" that identifies the transaction entity, and then sent within a new topic, "transactions_enriched".
   
     ![aggregation](./img/aggregation.png)
+    -  Starting from the topic containing transactions of users enriched with the "amount" field, FlinkSQL applies aggregation functions (SUM --> sum of the "amount" for each user, COUNT --> number of transactions for each user, HOP --> retrieval of only the transactions within a specific time window) and the transactions are grouped by user_id. Finally, the output of this operation is sent within a new topic, "transactions_aggregate".
 
 ## Clustering Details
 
@@ -143,7 +145,7 @@ Add **transactions** topic with **single partition** and **default settings:**
 
 ### 3. **Datagen Connectors**
 
-**Your Kafka cluster should have one Datagen Source Connectors running**. 
+**Your Kafka cluster should have one Datagen Source Connector running**. 
 
 **To add Datagen Source Connector:**
 
@@ -156,7 +158,6 @@ Add **transactions** topic with **single partition** and **default settings:**
 - **Select a schema **--> Show more options and **select Transactions**
 - Set the connector name to **DSoC_transactions** and for the next steps, press "Continue" to maintain the default settings.
 
-***Summary***
 
 Check if the topic and template configurations match the table below.
 
