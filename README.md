@@ -1,22 +1,26 @@
 
 
 
-
 # Streaming UEBA Marketing Analytics
 
+* **Requirements and Objectives**
+* **Architectural Solution**
+* **Clustering Details**
+* **Resources Used**
+* **Getting started** 
 
 
-[TOC]
+
 
 ## Requirements and Objectives
 
 - **Why are we doing this?** **What is the purpose?** **Where do we want to get to?**
 
-  In any business context, starting from input data, particularly transactional data, our primary goal is to extract information related to user behaviour. To achieve this objective, we are interested in adopting a data-driven approach, utilizing advanced unsupervised machine learning techniques such as K-means clustering (which brings with it numerous advantages, including speed and simplicity).
+  In any business context, starting from input data, particularly transactional data, our primary goal is to extract information related to user behaviour. To achieve this objective, we are interested in adopting a data-driven approach, utilizing advanced unsupervised machine learning techniques such as K-means clustering (which brings numerous advantages, including speed and simplicity).
 
-  As we navigate through our data flow, it is crucial to enrich our dataset with additional attributes that identify the entity of each transaction. This step is fundamental to ensure that our clustering algorithms produce meaningful results and facilitate more precise user segmentation.
+  As we navigate through our data flow, it is crucial to enrich our dataset with additional attributes that identify the entity of each transaction. This step is fundamental to ensure that the clustering algorithms produce meaningful results and facilitate more precise user segmentation.
 
-  In this context, our main objectives revolve around enhancing our real-time reporting and analytics capabilities. We aim to gain a deeper understanding of user behaviour through effective labelling strategies, while simplifying our development processes for increased efficiency and agility.
+  In this context, our main objective is enhancing our real-time reporting and analytics capabilities. We aim to gain a deeper understanding of user behaviour through effective labelling strategies while simplifying our development processes for increased efficiency and agility.
 
 
 
