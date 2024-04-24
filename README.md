@@ -39,7 +39,7 @@
 | user_labeling_final    | (user_id: *string*, total_amount: *double*, num_transactions: *long*, label: *int*) |
 
 
-- **Chart and description of the solution**
+- **Architectural Diagram and description of the solution**
 
   ![architecture_diagram_BwC_final](./img/architecture_diagram_BwC_final.jpg)
 
