@@ -337,7 +337,7 @@ Once the FlinkSQL queries have been executed, we can start the Python client, wh
 **As a first step**, it is necessary to clone the code from the repository locally using the git clone command:
 
 ```bash
-git clone https://github.com/Data-Reply/bwc-streamingUEBA
+git clone https://github.com/Data-Reply/bwc-streaming-UEBA
 ```
 
 The client requires a configuration file **`configuration.ini`** as an argument, where all the necessary credentials and configurations to access the previously instantiated resources will be inserted.
